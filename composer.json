@@ -1,0 +1,16 @@
+{
+    "name": "bakha/crud",
+    
+    "authors": [
+        {
+            "name": "BakhadyrovF",
+            "email": "BakhadyrovF@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
