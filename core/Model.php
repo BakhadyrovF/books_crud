@@ -118,14 +118,17 @@ abstract class Model
 
     public function fetchById($id)
     {
-        $statement = $this->prepare("SELECT * FROM books WHERE id = $id");
-        $statement->execute();
-        $user = $statement->fetch(PDO::FETCH_ASSOC);
-        if($user)
+        if(isset($id))
         {
-            $this->title = $user["title"];
-            $this->author = $user["author"];
-            $this->price = $user["price"];
+            $statement = $this->prepare("SELECT * FROM books WHERE id = $id");
+            $statement->execute();
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            if($user)
+            {
+                $this->title = $user["title"];
+                $this->author = $user["author"];
+                $this->price = $user["price"];
+            }
         }
         
     }
