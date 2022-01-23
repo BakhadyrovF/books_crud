@@ -79,12 +79,15 @@ abstract class Model
 
     public function fetchByTitle($value)
     {
-        $pdo = Application::$app->db->pdo;
-        $statement = $pdo->prepare("SELECT title FROM books WHERE title = :title");
-        $statement->bindValue(":title", $value);
-        $statement->execute();
-        $user = $statement->fetchObject();
-        return $user ?? false;
+        if(Application::$app->request->getPath() === "/create")
+        {
+            $pdo = Application::$app->db->pdo;
+            $statement = $pdo->prepare("SELECT title FROM books WHERE title = :title");
+            $statement->bindValue(":title", $value);
+            $statement->execute();
+            $user = $statement->fetchObject();
+            return $user ?? false;
+        }
     }
 
     public function getBooks()

@@ -52,7 +52,7 @@ class BookController extends Controller
             if($createModel->validate())
             {
                 $createModel->update($id);
-                return "success";
+                header("Location: /");
             }
         }
         $createModel->fetchById($id);
